@@ -7,3 +7,4 @@
 #Script 6 : displays the third line of the file iacta using the command ' cat iacta | head -n 3 | tail -n 1
 #Script 7 : creates a file named exactly " \*\\\'\"Best School"\'\\\*$\?\*\*\*\*\*:)" 
 #Script 8 : writes into the file ls_cwd_content the result of the command ls -la using the command ls -la > ls_cwd_content
+#Script 9 : script that duplicates the last line of the file iacta using the script " tail -n 1 >>  iacta "
