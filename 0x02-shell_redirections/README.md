@@ -20,4 +20,7 @@
 #Script 19 : Replace all characters A and c from input to Z and e respectively. use ==> tr Ac Ze
 #Script 20 : Create a script that removes all letters c and C from input. ==> tr -d cC
 #Script 21 : Write a script that reverse its input. ==> rev
-#Script 22 : Write a script that displays all users and their home directories, sorted by users. use ==> cut -d ':' -fl,6 /etc/passwd | sort  
+#Script 22 : Write a script that displays all users and their home directories, sorted by users. use ==> cut -d ':' -fl,6 /etc/passwd | sort
+#Script 23 : Write a command that finds all empty files and directories in the current directory and all sub-directories.use ==> find . -empty -printf '%f\n'
+#Script 24 :find . -type f -name '*.gif' -exec basename {} .gif \; | LC_ALL=C sort -f
+  
