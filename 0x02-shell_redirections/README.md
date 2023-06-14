@@ -9,3 +9,4 @@
 #Script 8 : writes into the file ls_cwd_content the result of the command ls -la using the command ls -la > ls_cwd_content
 #Script 9 : script that duplicates the last line of the file iacta using the script " tail -n 1 >>  iacta "
 #Script 10 : script that deletes all the regular files (not the directories) with a .js extension use find . -name "*.js" type f  -delete
+#Script 11 : script that counts the number of directories and sub-directories in the current directory use find . -mindepth 1 -type d | wc -l
