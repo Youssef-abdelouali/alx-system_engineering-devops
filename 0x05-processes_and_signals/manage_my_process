@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Continuously writes the message "I am alive!" to the file /tmp/my_process.
-#   Adds a two-second pause between each message.
-
+# Adds a two-second pause between each mes
 while true
 do
   echo "I am alive!" >> /tmp/my_process

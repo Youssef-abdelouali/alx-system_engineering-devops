@@ -17,16 +17,19 @@
 #   If any other argument or no arguments are provided, shows
 #+  "Usage: manage_my_process {start|stop|restart}"
 
-if [ "${1}" == "start" ]; then
+if [ "${1}" == "start" ]; 
+then
     ./manage_my_process &
     touch /var/run/my_process.pid
     echo "$!" > /var/run/my_process.pid
     echo "manage_my_process initiated"
-elif [ "${1}" == "stop" ]; then
+elif [ "${1}" == "stop" ];
+then
     echo "manage_my_process terminated"
     kill "$(cat /var/run/my_process.pid)"
     rm /var/run/my_process.pid
-elif [ "${1}" == "restart" ]; then
+elif [ "${1}" == "restart" ]; 
+then
     kill "$(cat /var/run/my_process.pid)"
     rm /var/run/my_process.pid
     ./manage_my_process &
