@@ -2,7 +2,7 @@
 # This script displays a list of currently running processes
 
 # Display header
-echo "PID   USER   START   COMMAND"
+echo "PID"
 
 # Display list of processes
-ps -eo pid,user,lstart,cmd
+ps -eo pid
