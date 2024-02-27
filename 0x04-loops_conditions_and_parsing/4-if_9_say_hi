@@ -8,6 +8,7 @@ counter=0
 while [ $counter -lt 10 ]; do
     # Check if it's the 9th iteration
     if [ $counter -eq 8 ]; then
+        echo   # Print a new line
         echo "Hi"
     else
         echo "Best School"
