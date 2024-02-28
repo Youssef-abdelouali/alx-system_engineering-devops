@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Above line specifies the interpreter to be used, here bash
+
+# Tells a story based on the contents of the `/etc/passwd` file.
+
+# Loop through each line of the /etc/passwd file
+while IFS=':' read -r username password uid gid info home shell; do
+  # Print a story based on the user information
+  echo "User: $username"
+  echo "  - UID: $uid"
+  echo "  - Group ID: $gid"
+  echo "  - Description: $info"
+  echo "  - Home Directory: $home"
+  echo "  - Shell: $shell"
+  echo "  - Password: $password"
+done < "/etc/passwd"  # Redirects the file /etc/passwd as input for the while loop
+
