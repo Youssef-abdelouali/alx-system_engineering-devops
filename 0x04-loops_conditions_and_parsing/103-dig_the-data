@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Above line specifies the interpreter to be used, here bash
+
+# Parses Apache log files in list format.
+#   Groups visitors by IP and HTTP status code.
+#   Displays the number of occurrences, IP, and HTTP status
+#   code of each log, in sorted order.
+
+# Use awk to extract IP and HTTP status code from each line of the Apache access log file
+# Then sort the output and count the occurrences of each unique combination using uniq -c
+# Finally, sort the result in reverse numerical order to display most frequent entries first
+awk '{print $1 " " $9}' apache-access.log | sort | uniq -c | sort -rn
+
