@@ -1,11 +1,7 @@
 #!/usr/bin/env ruby
 
-# Retrieve the first argument provided from the command line
-input = ARGV[0]
+# Retrieves the first argument from the command line.
+# Scans it for the pattern "hb?t?n" where '?' denotes zero or one occurrence of the preceding character.
+# Joins all the matching occurrences together and prints the result.
+puts ARGV[0].scan(/hb?t?n/).join
 
-# Check if the input matches the pattern
-if input.match?(/hb?t?n/)
-  puts input
-else
-  puts ""
-end
