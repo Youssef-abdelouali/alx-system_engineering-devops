@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Script: display_ports.sh
+# Description: Displays listening ports along with the PID and name of the program to which each socket belongs.
+# Usage: ./display_ports.sh
+# Requirements: This script requires the 'netstat' command.
+# Author: [Your Name]
+
+# Display listening ports including listening sockets, along with PID and program information
+netstat -l --program
+
