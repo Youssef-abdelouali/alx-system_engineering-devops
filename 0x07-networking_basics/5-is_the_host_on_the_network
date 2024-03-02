@@ -2,13 +2,9 @@
 # Script: 5-is_the_host_on_the_network.sh
 # Description: Pings an IP address received as an argument 5 times.
 # Usage: ./5-is_the_host_on_the_network.sh {IP_ADDRESS}
-# Author: [Your Name]
-
-# Check if no arguments are provided
-if [ $# -eq 0 ]; then
-  echo "Usage: $0 {IP_ADDRESS}"
+if [ $# -eq 0 ]
+then
+  echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
 else
-  # Ping the provided IP address 5 times
   ping -c 5 "$1"
 fi
-
