@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# A Bash script to install Nginx on an Ubuntu machine.
+# This script also configures the default webpage to display "Hello World!".
+# When the URL /redirect_me is requested, it redirects to my YouTube channel.
+# When a page or file is not found in the document root, the 404.html page is served using the error_page directive.
+
+# Update package lists
+sudo apt-get update -y
+
+# Install Nginx
+sudo apt-get install nginx -y
+
+# Create the default index.html page with "Hello World!"
+echo "Hello World!" | sudo dd status=none of=/var/www/html/index.html
+
+# Create the custom 404 error page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html > /dev/null
+
+# Define the rule for the redirect
+REDIRECT_RULE="\\\n\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=dQw4w9WgXcQ;\n\t}\n"
+
+# Backup the original Nginx default site configuration
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.backup
+
+# Insert the redirect rule into the Nginx default site configuration
+sudo sed -i "53i $REDIRECT_RULE" /etc/nginx/sites-available/default
+
+# Define the rule for the custom 404 error page
+ERROR_PAGE_RULE="\\\n\terror_page 404 /404.html;\n\n\tlocation = /404.html {\n\t\tinternal;\n\t}\n"
+
+# Insert the custom 404 error page rule into the Nginx default site configuration
+sudo sed -i "53i $ERROR_PAGE_RULE" /etc/nginx/sites-available/default
+
+# Reload Nginx to apply changes
+sudo service nginx reload
