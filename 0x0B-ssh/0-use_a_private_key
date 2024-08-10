@@ -4,4 +4,4 @@
 SERVER_ADDRESS="54.89.27.87"
 
 # Connect to the server using the specified private key and user
-ssh ubuntu@$SERVER_ADDRESS -i ~/.ssh/id_rsa
+ssh ubuntu@$SERVER_ADDRESS -i ~/.ssh/school
