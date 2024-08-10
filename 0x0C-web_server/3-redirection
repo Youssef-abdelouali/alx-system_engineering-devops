@@ -1,25 +1,11 @@
 #!/usr/bin/env bash
-# A bash script that installs Nginx on an Ubuntu machine.
-# This script also configures the default webpage to serve "Hello World!"
-# and sets up a redirect from /redirect_me to a YouTube channel.
+# Script that configures a new Ubuntu machine to respect above requirements
 
-# Update package lists
-sudo apt-get update -y
+sudo apt-get update
+sudo apt-get install -y nginx
 
-# Install Nginx
-sudo apt-get install nginx -y
+echo "Hello World!" | sudo tee /var/www/html/index.html
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.blog.youssefabdeloualidev.tech permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
 
-# Create a default index.html page with "Hello World!"
-echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
-
-# Define the new rule for the redirect
-NEW_RULE="\\\n\tlocation = /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=dQw4w9WgXcQ;\n\t}\n"
-
-# Backup the original Nginx default site configuration
-sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bakup
-
-# Insert the new rule into the Nginx default site configuration
-sudo sed -i "53i $NEW_RULE" /etc/nginx/sites-available/default
-
-# Restart Nginx to apply changes
 sudo service nginx restart
