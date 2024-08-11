@@ -33,18 +33,18 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-frontend  ehoneah-frontend-http
+frontend  youssefabdeloualidev-frontend-http
         bind *:80
         mode http
 	http-request set-header X-Forwarded-Proto http
-        default_backend ehoneah-backend
+        default_backend youssefabdeloualidev-backend
 
-frontend ehoneah-frontend-https
+frontend youssefabdeloualidev-frontend-https
 	bind *:443 ssl crt /etc/haproxy/certs/www.youssefabdeloualidev.tech.pem
 	http-request set-header X-Forwarded-Proto https
-	default_backend ehoneah-backend
+	default_backend youssefabdeloualidev-backend
 
-backend ehoneah-backend
+backend youssefabdeloualidev-backend
         balance roundrobin
         server 63210-web-01 54.89.27.87:80 check
         server 63210-web-02 54.166.135.22:80 check
